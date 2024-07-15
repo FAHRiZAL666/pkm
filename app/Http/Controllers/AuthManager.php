@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Parkiran;
+
 
 class AuthManager extends Controller
 {
@@ -22,7 +24,11 @@ class AuthManager extends Controller
     }
 
     function main(){
-        return view('main');
+        $bookedSlots = Parkiran::  // Sesuaikan dengan lantai yang dipilih
+                                whereIn('status', ['Booking', 'Dalam Parkiran'])
+                                ->pluck('slot_parkir')
+                                ->toArray();
+        return view('main', ['bookedSlots' => $bookedSlots]);
     }
 
     function karcis(){

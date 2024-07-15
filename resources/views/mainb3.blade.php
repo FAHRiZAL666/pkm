@@ -10,22 +10,28 @@
   <link rel="stylesheet" href="style.css">
 
   <title>Park Cam Emotrack</title>
+  <style>
+
+
+
+
+
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="container-fluid">
-      <div class="navbar-brand">Lantai</div>
+      <div class="navbar-brand">Navbar</div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ">
           <li class="nav-item dropdown me-auto">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
+              Lantai
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" id="B1" href="javascript:void(0)" onclick="changeLantai(1)">B1</a></li>
-              <li><a class="dropdown-item" id="B2" href="javascript:void(0)" onclick="changeLantai(2)">B2</a></li>
-              <li><a class="dropdown-item" id="B3" href="javascript:void(0)" onclick="changeLantai(3)">B3</a></li>
-              <li><a class="dropdown-item" id="B4" href="javascript:void(0)" onclick="changeLantai(4)">B4</a></li>
+              <li><a class="dropdown-item" id="B1" href="#">B1</a></li>
+              <li><a class="dropdown-item" id="B2" href="#">B2</a></li>
+              <li><a class="dropdown-item" id="B3" href="#">B3</a></li>
             </ul>
           </li>
         </ul>
@@ -46,30 +52,23 @@
     BOOKING
   </div>
 
-  {{-- <form action="{{ route('booking.store') }}" method="POST">
-    @csrf --}}
-    @for ($i = 1; $i<=4; $i++)
-    <div class="container-lantai container p-0 mt-3 slot {{$i == 1 ? '' : 'd-none'}}" id="container_lantai_{{$i}}">
+  <form action="{{ route('booking.store') }}" method="POST">
+    @csrf
+    <div class="container p-0 mt-3 slot">
         <div class="row slot-booking ms-1">
             @foreach(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'] as $letter)
                 <div class="col-1">
-                    <input type="radio" onclick="selectSlot('{{$letter}}')" class="select-slot" id="B{{$i . $letter }}" name="slot[]" value=""
-                           data-letter = "{{$letter}}"
-                           {{ in_array("B" . $i . $letter, $bookedSlots) ? 'disabled' : '' }}>
-                    <label for="B{{ $i . $letter }}" class="select-slot-label">B<span class="value-lantai">{{$i}}</span>{{ $letter }}</label>
+                    <input type="radio" class="select-slot" id="B1{{ $letter }}" name="slot[]" value="B1{{ $letter }}"
+                           data-slot="B1{{ $letter }}"
+                           {{ in_array("B1$letter", $bookedSlots) ? 'disabled' : '' }}>
+                    <label for="B1{{ $letter }}" class="select-slot-label">B1{{ $letter }}</label>
                 </div>
             @endforeach
         </div>
     </div>
-    @endfor
 
     <div class="btn-booking">
-        <form action="{{ route('booking.store') }}" method="POST">
-            @csrf
-            <input type="hidden" name="selectedSlot" id="selectedSlot">
-            <input type="hidden" name="selectedLantai" id="selectedLantai">
-            <button type="submit" id="bookingButton">BOOKING</button>
-        </form>
+        <button type="submit" id="bookingButton">BOOKING</button>
     </div>
 
     @if($errors->any())
@@ -81,12 +80,11 @@
             </ul>
         </div>
     @endif
-{{-- </form> --}}
+</form>
 
 
 
   <script language="javascript" type="text/javascript" src="//play.streamingvideoprovider.com/js/dplayer.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script language="javascript">
     var vars = {
         clip_id: "9eruz4l2mvc4",
@@ -135,21 +133,7 @@
     svp_player.execute();
   </script>
   <noscript>Your browser does not support JavaScript! JavaScript is needed to display this video player!</noscript>
-  <script>
-    var selectedLantai = 1;
-    var selectedLetter = '';
-    function changeLantai(lantai){
-        $('.value-lantai').html(lantai)
-        selectedLantai = lantai
-        $('.container-lantai').addClass('d-none');
-        $('#container_lantai_'+lantai).removeClass('d-none')
-    }
-    function selectSlot(letter){
-        selectedLetter = letter
-        $('#selectedSlot').val('B'+selectedLantai+selectedLetter)
-        $('#selectedLantai').val('B'+selectedLantai)
-    }
-  </script>
+
   <!-- Optional JavaScript; choose one of the two! -->
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <form action="{{route('registration.post')}}" method="POST" class="mx-auto">
         @csrf
-        <h4 class="text-center my-3 text-white">SIGN IN</h4>
+        <h4 class="text-center my-3 text-white">SIGN UP</h4>
         {{-- Email --}}
         <div class="mt-3 mb-4">
         <input type="email" class="form-control rounded-pill ps-3" name="email" placeholder="E-MAIL">
@@ -26,7 +26,7 @@
             <div class="failed">*password harus diisi</div>
         @enderror
         </div>
-      <button type="submit" class="btn btn-outline-light rounded-pill mb-3">SIGN IN</button>
+      <button type="submit" class="btn btn-outline-light rounded-pill mb-3">SIGN UP</button>
     </form>
 </div>
 @endsection

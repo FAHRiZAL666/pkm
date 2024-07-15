@@ -52,7 +52,7 @@
             </div>
 
             <div class="col-3 card me-auto border border-0 bg-dark p-0">
-                <a href="#" class="btn">
+                <a href="{{route('main')}}" class="btn">
                 <img src="images/card3.jpg" class="card-img-top mt-2" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">23 PASKAL</h5>
@@ -65,7 +65,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-3 card ms-auto border border-0 bg-dark p-0">
-                <a href="#" class="btn">
+                <a href="{{route('main')}}" class="btn">
                 <img src="images/card2.jpg" class="card-img-top mt-2" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">TSM</h5>
@@ -78,7 +78,7 @@
             </div>
 
             <div class="col-3 card me-auto border border-0 bg-dark p-0">
-                <a href="#" class="btn">
+                <a href="{{route('main')}}" class="btn">
                 <img src="images/card1.jpg" class="card-img-top mt-2" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">CIWALK</h5>
@@ -86,6 +86,9 @@
                 </a>
             </div>
         </div>
+    </div>
+    <div>
+        <a href="{{route('karcis')}}" class="btn btn-light rounded-pill btn-lg mb-4 mt-5" role="button">KARCIS</a>
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

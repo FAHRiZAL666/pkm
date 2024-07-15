@@ -75,11 +75,13 @@ body {
 .denah div {
     text-align: center;
     font-weight: bold;
+    /* position: relative; */
 }
 
 .denah img {
     height: auto;
     width: 100%;
+    /* position: absolute; */
 }
 .cctv{
     height: 250px;
@@ -104,26 +106,41 @@ body {
     width: 350px;
     height: 70px;
 }
-.slot-booking {
+.slot-booking .select-slot {
+    display: none;
+  }
+.slot-booking .select-slot-label {
+    display: inline-block;
     width: 100%;
+    height: 80px;
+    padding-top: 50%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border: 3px solid;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 .slot-booking .col-1{
     width: 50px;
     margin-right: 8px;
 }
-.slot-booking button{
-    width: 100%;
-    height: 70px;
-    border-radius: 10px;
-}
-
 .slot-booking div{
     padding: 0;
 }
+.slot-booking .select-slot:checked + .select-slot-label {
+    background-color: grey;
+  }
+  .slot-booking .select-slot:disabled + .select-slot-label {
+    background-color: white;
+    color: black;
+    cursor: not-allowed;
+  }
 .btn-booking{
-    width: 100px;
+    width: 110px;
     height: 30px;
-    margin: 20px auto 30px auto;
+    margin: 150px auto 30px auto;
 }
 
 .btn-booking button {
